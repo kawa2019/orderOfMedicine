@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+All JS code there is in src/components directory. 
+
 ## Available Scripts
 
 In the project directory, you can run:
