@@ -72,7 +72,7 @@ export default function () {
     }
     return (
         <form onSubmit={handleForm}>
-            <h1>Zlecenie lekowe{success}</h1>
+            <h1>Zlecenie lekowe<br></br>{success}</h1>
             <label htmlFor="name" >Imię:{errorName}</label>
             <input className="field" type="text" style={styleError(errorName)} id="name" name="name" value={name} onChange={(event) => setName(event.target.value)} />
             <label htmlFor="surname" >Nazwisko:{errorSurname}</label>
