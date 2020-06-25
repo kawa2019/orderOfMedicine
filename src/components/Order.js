@@ -13,7 +13,6 @@ export default function () {
     const [medicine, setMedicine] = useState("aspiryna")
     const [timeMedicine, setTimeMedicine] = useState("08:00")
     const [date, setDate] = useState(currentDateDay)
-    console.log(today.getMonth())
     const [ward, setWard] = useState("ratunkowy")
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
@@ -34,6 +33,8 @@ export default function () {
         }
     }
     const numbers = /^[0-9]+$/;
+    const only_letters=/^[A-Za-z]+$/
+
     const handleForm = (event) => {
         setErrorSurname("");
         setErrorName("");
@@ -48,22 +49,22 @@ export default function () {
             setErrorYear("rok zbyt odległy")
             errors.push(date)
         }
-        if (name.trim().length < 3 || name.match(numbers)) {
+        if (name.trim().length < 3 || !only_letters.test(name)) {
             console.log("error name")
             setErrorName("Imię za krótkię bądź zawiera liczby")
             errors.push(name)
         }
-        if (surname.trim().length < 3 || surname.match(numbers)) {
+        if (surname.trim().length < 3 || !only_letters.test(surname)) {
             console.log("error surname")
             setErrorSurname("nazwisko za krótkie bądź zawiera liczby")
             errors.push(surname)
         }
-        if (+quantity < 1 || !quantity.match(numbers)) {
+        if (+quantity < 1 || !numbers.test(quantity)) {
             console.log("error quantity")
             setErrorQuantity("ilość za mała bądź zawiera różne od liczb znaki")
             errors.push(quantity)
         }
-        if (!perIdNum.match(numbers)) {
+        if (!numbers.test(perIdNum)) {
             console.log("error pesel")
             setErrorPesel("pesel zawiera różne od liczb znaki");
             errors.push(perIdNum)
